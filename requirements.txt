@@ -1,0 +1,5 @@
+numpydoc==1.5.0
+scikit-learn-intelex==20230228.214818
+streamlit==1.20.0
+nltk @ file:///opt/conda/conda-bld/nltk_1645628263994/work
+conda==23.1.0
