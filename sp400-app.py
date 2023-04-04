@@ -34,7 +34,7 @@ intents = [
     },
     {
         "tag": "thanks",
-        "patterns": ["Thank you", "Thanks", "Thanks a lot", "I appreciate it","thank you.","you are so nice","You are so Great","you are Amazing","you are so kind heart","you are funny","you are so intelligent.","thanks","thank you so much","thank you so much","muaw","you are intelligent","you are very intelligent"."you are so clever","you are awesome","you are Amazing","Great","you are great","you are so nice","you are so funny","you are hilarious","you are hilarious","you are super intellingent","you are so good","you are too good","you are too nice","you are too intelligent","you are so smart"."you are smart."],
+        "patterns": ["Thank you", "Thanks", "Thanks a lot", "I appreciate it","thank you.","you are so nice","You are so Great","you are Amazing","you are so kind heart","you are funny","you are so intelligent.","thanks","thank you so much","thank you so much","muaw","you are intelligent","you are very intelligent","you are so clever","you are awesome","you are Amazing","Great","you are great","you are so nice","you are so funny","you are hilarious","you are hilarious","you are super intellingent","you are so good","you are too good","you are too nice","you are too intelligent","you are so smart","you are smart."],
         "responses": ["You're welcome.I will take it as a complement.", "No problem.", "Glad I could help.Because my master think i am just a waste of time.","OMG that's first time someone is praising me. I am so happy today :)\n what can i do for you ?","Well Well i know that i am so smart but still thanks for admiring me.Daddy will be proud of me."]
     },
     {
