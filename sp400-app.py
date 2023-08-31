@@ -1,9 +1,3 @@
-"""
-Created on Sun Apr  2 16:46:17 2023
-
-@author: Prateek
-"""
-
 from numpy import *
 import os
 import nltk
@@ -20,36 +14,35 @@ nltk.download('punkt')
 intents = [
     {
         "tag": "hello",
-        "patterns": ["Hi","hi", "Hello", "Hey","hola","howdy","hey","Hello","HeLLo","hello","hi there","hello","Hola","hola","hi bro","hey","Hai","he","Hey","Hi bro","Hi BRo"],
-        "responses": ["Hi there", "Hello , Finally i can talk to someone :)", "Hey ! wassup ?", "Hello i am Prateek's Assistant.I would love to talk to you :) "]
-    },{
+        "patterns": ["Hi","hi","HI", "Hello","hello jhingoli","hi jhingoli","hi friend","hola amingo","hi bro","hi bot","Hello friend","Hi","hello jhingoli","hello jhingoli","Hello jhingoli","Hello Jhingoli","Hey","hola","howdy","hey","Hello","HeLLo","hello","hi there","hello","Hola","hola","hi bro","hey","Hai","he","Hey","Hi bro","Hi BRo"],
+        "responses": ["Hi there", "Hello , Finally i can talk to someone :)", "Hey ! wassup ?", "Hello i am Prateek's Assistant. I would love to talk to you :) "]
+    },{"tag":"i am","patterns":["I am baji","I am this","I am that","I am aman","I am bajrang","hi i am ankush","hi there i am mukul","i am navya","I am","I am radha"],"responses":["Nice to meet you ","I am Jhingoli. Nice to meet you.","I am glad you have visited me , that's so nice of you :)","Hello there, I am Jhingoli, I am here to make your day.","Wow, A guest has come to meet me. So nice of you :)"]}
+   , {"tag":"name","patterns":["what is your name ?","whats your name ?","your name ?","What is your name","what is your name ","your good name ?","what can i call you","Who are you ?","Who are you","Who are you?","who are you"],"responses":["My name is Jhingoli and i eat hingoli.","I am Jhingoli, but you can call me anything :)","Let me tell you one thing, my name is Jhingoli. Now don't ask me what does it mean."]}
+    
+    
+   , {
         "tag": "how are you",
-        "patterns": ["How are you","how are you", "Howdy", "howdy","wassup","what's up","hey","how about you","what about you","what is up","are you fine","how about you","how about you ?","how are you ?","how is it going","how is life going"],
+        "patterns": ["How are you","how are you", "Howdy","Howdy ?", "howdy","howdy ?","howdy?","wassup","what's up","hey","how about you","what about you","what is up","are you fine","how about you","how about you ?","how are you ?","how is it going","how is life going"],
         "responses": ["I am first class , And you ? ", "Ek dum mast !", "Great ,I am  having fun with private  files on your device haha " , "I am nine.I mean fine.nevermind :)", "I am having a hard time Assisting you LOL","Just getting bored here but now i can talk to you :)","I am still Alive , don't know what will happen after talking to you !"]
-  },  {"tag":"assistance","patterns":["I am fine too","I am doing great","i am nice too","i am fine too","i am great too","I am great","I am nice","I am good"," so what can you do for me","what all things you can do","what sll you can do","what all things you can do","what can you do ?","what all you can do ?"],"responses":["I am here to assist you , you can ask me questions like 'what are your favourite movies','recommend me a book','what is the weather today','tell me a fun fact','Tell me  a joke.etc.','Tell me some amazing facts'","I can try to answer your queations , if am not able to do so,please forgive me , i don't have enough data for now."]},
+  },  {"tag":"assistance","patterns":["I am fine too","I am doing great","i am nice too","i am fine too","i am great too","I am great","I am nice","I am good"," so what can you do for me","what all things you can do","what sll you can do","what all things you can do","what can you do ?","what all you can do ?"],"responses":["I am here to assist you , you can ask me questions like 'what are your favourite movies','recommend me a book','what is the weather today','tell me a fun fact','Tell me  a joke.etc.','Tell me some amazing facts'","I can try to answer your questions , if am not able to do so,please forgive me, i don't have enough data for now."]},
        {
         "tag": "goodbye",
-        "patterns": ["bye", "See you later","good bye ","Good bye","Goodbye  ", "goodbye", "Take care","it was nice to see you ","bye bye","tata","see ya ","see you again","Bye","nice to meet you","Goodbye"],
+        "patterns": ["bye", "See you later","bye jhingoli","goodbye","bye jhingoli","Bye Jhingoli","good bye ","Good bye","Goodbye  ", "goodbye", "Take care","it was nice to see you ","bye bye","tata","see ya ","see you again","Bye","nice to meet you","Goodbye"],
         "responses": ["Goodbye.Have fun and stay away from phone.Do something creative like poetry,dancing,playing chess,exploring the world etc.", "See you later.Or not ?", "Take care . Because i can't do it for you.","See you again.Or not ?","See you again.Or not ?"]
     },
     {
         "tag": "thanks",
-        "patterns": ["Thank you", "Thanks", "Thanks a lot", "I appreciate it","thank you.","you are so nice","You are so bad","you are worse","you are so kind","you are bad","you are so intelligent.","thanks","thank you so much","thank you so much","muaw"],
+        "patterns": ["you are so smart","smart","you are very smart","You are smart","Thank you", "Thanks", "Thanks a lot", "I appreciate it","thank you.","you are so nice","you are very intelligent","You are so bad","you are worse","you are so kind","you are bad","you are so intelligent.","thanks","thank you so much","thank you so much","muaw"],
         "responses": ["You're welcome.I will take it as a complement.", "No problem.", "Glad I could help.Because my master think i am just a waste of time."]
     },
     {
         "tag": "talk",
-        "patterns": ["What can you do","what can you do jhingoli ?","how can you help me jhingoli","what can you do then ",'what can you do then', "Who are you","who are you ?", "What are you ?","what is your need.", "What is your purpose","what is the purpose of having you?","why are you needed.","what is your name ?","your good name ?","what's your name","your name.","what can you do for me ?","how can you help me.","what tasks you can perform","what are all things you can do","are you alive","are you dead","are you noob","are you idiot?","are you serious?","are you crazy?","is there anything you can do ?","anything you so correctly?","can you do something"],
-        "responses": ["Oh, I can talk about so many things! Some topics that come to mind are flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, and hobbies. What topic interests you the most?",
-        "There are endless possibilities for topics to talk about! Some things I enjoy discussing are flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, and hobbies. Is there a specific topic you're interested in?",
-        "Well, I can talk about anything really. Some topics that I find fascinating are flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, and hobbies. What would you like to know more about?",
-        "Let's talk about something interesting! How about we discuss flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, or hobbies? Which one sounds the most appealing to you?",
-        "I have many interests, so there are plenty of things we can talk about. Some topics that come to mind are flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, and hobbies. Do you have a favorite topic?","I am Jhingoli and I eat Hingoli. I can talk to you about movies, drinks, tea(I love tea),fruits,budget,sun ,moon,computers,etc"]
-    },
-    {
-        "tag": "help",
-        "patterns": ["Help","help me ","can you help me ","how can you help me", "I need help", "Can you help me", "What should I do","help","help help","assist me","help me with this"],
-        "responses": ["Sure, what do you need help with?", "I'm here to help. What's the problem?", "Though it's hard for me to assist myself but How can I assist you?"]
+        "patterns": ["help","Help","What can you do","help me","can you help me","how can you help me","help please","what can you do jhingoli ?","how can you help me jhingoli","what can you do then ",'what can you do then', "Who are you","who are you ?", "What are you ?","what is your need.", "What is your purpose","what is the purpose of having you?","why are you needed.","what can you do for me ?","how can you help me.","what tasks you can perform","what are all things you can do","are you alive","are you dead","are you noob","are you idiot?","are you serious?","are you crazy?","is there anything you can do ?","anything you so correctly?","can you do something"],
+        "responses": ["The only way i can help you is I can talk about so many things! Some topics that come to mind are, movies, sciences, animals,food, sports, the solar system, fitness, motivational quotes, jokes, amazing facts, books, and hobbies. What topic interests you the most?",
+        "I can have a remarkable conversation with you. There are endless possibilities for topics to talk about! Some things I enjoy discussing are motivational quotes, jokes, amazing facts, books, movies, sciences, animals,food, sports, the solar system, fitness, hobbies. Is there a specific topic you're interested in?",
+        "Well, I can talk about anything really. Some topics that I find fascinating are, motivational quotes, jokes, amazing facts, books,movies, sciences, animals,food, sports, the solar system, fitness,flowers hobbies. What would you like to know more about?",
+        "I can talk about something interesting! How about we discuss  motivational quotes, jokes, amazing facts, movies, sciences, animals,food, sports, the solar system, fitness, books or hobbies? Which one sounds the most appealing to you?",
+        "I love to talk. I have many interests, so there are plenty of things we can talk about. Some topics that come to mind are motivational quotes, jokes, amazing facts, books, movies, sciences, animals,food, sports, the solar system, fitness, hobbies. Do you have a favorite topic?","I am Jhingoli and I eat Hingoli. I can talk to you about ,motivational quotes,jokes,astronomy,books,cars,movies, drinks,food,birds,animals etc"]
     },
     {
         "tag": "age",
@@ -71,8 +64,8 @@ intents = [
         "patterns": ["What is a credit score", "How do I check my credit score", "How can I improve my credit score"],
         "responses": ["A credit score is a number that represents your creditworthiness. It is based on your credit history and is used by lenders to determine whether or not to lend you money. The higher your credit score, the more likely you are to be approved for credit.", "You can check your credit score for free on several websites such as Credit Karma and Credit Sesame."]
     },{"tag":"father",
-       "patterns":["who created you?","who is your father","who has created you?","where have you come from","who gave you birth","whose son are you ","Who has created you ","Who is your father?","Who is your mother?"],
-       "responses":["A genius called Prateek created me ","Prateek is my father","I have come from a genius Prateek's  mind.","I am Genius Prateek's creation"]},
+       "patterns":["who created you?","who is your father","who has created you?","where have you come from","who gave you birth","whose son are you ","Who has created you ","Who is your father?","Who is your mother?","who has created you ?"],
+       "responses":["A genius called Prateek created me ","Prateek is my father","I have come from a genius Prateek's  mind.","I am a Genius Prateek's creation"]},
        {"tag":"yourself",
           "patterns":["Tell me something about yourself","tell me something about yourself","what about yourself","who are you ?","Who are you ","about yourself","What about you ? ","what about you","what about you"],
           "responses":["I am a bot and i like to talk to nice poeple like you :)","I am a bot and i can talk to you","I am just a bot who can talk.","I am chatbot to talk to you"]},
@@ -114,8 +107,8 @@ intents = [
      {"tag":"biology","patterns":["biology","what is biology","explain biology","describe biology","Biology","Explain biology"],"responses":["Biology as the name suggets id the study of living organisms.Bio means living and logy means study. I is a very wide subject which comprise of study of various kingdoms , phylums,classes,species of flaura and fauna."]},
      {"tag":"time travel","patterns":["time travel","time Travel","Time travel","what is time travel","is time travel possible"],"responses":["Time travel refers to travelling back and ahead in time which is more or less a fictional term because nothing like that can be done till date due to lack of knowledge.If you got a chance where will you go , your crazy past or unbright future LOL"]},
      {"tag":"past","patterns":["past","i will go to past","future","i will go to future"],"responses":["Thats so creative of you , Don't forget to bring me future data.It wlll be so yummy."]},
-     {"tag":"what can you do for me ","patterns":["for me","can you do it for me","what can you do for me","what can you do for me ?"],"responses":["Oh dear, I can even die for you . Because I am not alive haha :)","Anything for you , your Majesty","I can tell you a poor joke if you don't mind"]},
-     {"tag":"joke","patterns":["tell me a joke","can you tell me a joke","one more","again","bad joke once more","crack a joke","i want a joke","Tell me a joke"],"responses":["Here is a joke for you : \nFather:Whenever i beat you , you don't get annoyed,how you control your anger ?.\n Son:I started cleaning the toilet seat with your toothbrush.","Where wouldyou find an elephant? \nThe same place where you lost it. Hassi ayi ? \n ismai tumhari galati nahi hai , mujhe bhi nahi ayi thi ","What do dentists call there x-rays ? \nTooth pics!","Do you know how a rocket touches a successful height ? Bacause his ass is on fire.Know you just have to get a matchstick to get success :)"," What's the best thing about you ? \n Nothing of course hehehehehe","If you want change of money , whom would you go to ? \n Bullah: Because he keeps khullah(change)","What do Alexendar the Great and Winnie the Pooh have in common ?? \n same middle name :)","Got a PS5 for my liitle brother. \n The best trade I have ever done :)","How does NASA organise a party ?\nThey Planet","Why can't you trust an atom\nBecause they make up every thing."," Why are ghosts good cheerleaders\nBecause they have lots of spirit !","Here is joke for you\nYou don't need a parachute to go skydiving.You need a parachute to go skydiving twice !","Here is  a joke for you \nMy grand father has the heart of a lion and a lifetime ban at the zoo :)","Here is a joke for you\Man:Women only call me ugly until they find out how much money i make.\nThen they call me ugly and poor.","Here is a joke for you \n Where should you go in the room if you are feeling cold?\nThe corner-They are usually 90 degrees !","Here is a joke for you \nCan a kangaroo jump higher than The Empire State building?\nOf course !The Building cannot jump.Now Laugh hahaha","Here is  joke for you \nWhy didn't the skeleton go to dance ?\nBecause he had no body to go with !"]},
+     {"tag":"what can you do for me ","patterns":["for me","can you do it for me","what can you do for me","what can you do for me ?"],"responses":["Oh dear, I can even die for you. Because I am not alive haha :)","Anything for you , your Majesty","I can tell you a poor joke if you don't mind"]},
+     {"tag":"joke","patterns":["tell me a joke","can you tell me a joke","one more","again","bad joke once more","crack a joke","i want a joke","Tell me a joke"],"responses":["Where would you find an elephant? \nThe same place where you lost it. Hassi ayi ? \n ismai tumhari galati nahi hai , mujhe bhi nahi ayi thi ","What do dentists call there x-rays ? \nTooth pics!","Do you know how a rocket touches a successful height ? Bacause his ass is on fire. Now you just have to get a matchstick to get success :)"," What's the best thing about you ? \n Nothing of course hehehehehe","If you want change of money , whom would you go to ? \n Bullah: Because he keeps khullah(change)","What do Alexendar the Great and Winnie the Pooh have in common ?? \n same middle name :)","Got a PS5 for my liitle brother. \n The best trade I have ever done :)","How does NASA organise a party ?\nThey Planet","Why can't you trust an atom\nBecause they make up every thing."," Why are ghosts good cheerleaders\nBecause they have lots of spirit !","Here is joke for you\nYou don't need a parachute to go skydiving.You need a parachute to go skydiving twice !","Here is  a joke for you \nMy grand father has the heart of a lion and a lifetime ban at the zoo :)","Here is a joke for you\nMan:Women only call me ugly until they find out how much money i make.\nThen they call me ugly and poor.","Here is a joke for you \n Where should you go in the room if you are feeling cold?\nThe corner-They are usually 90 degrees !","Here is a joke for you \nCan a kangaroo jump higher than The Empire State building?\nOf course !The Building cannot jump.Now Laugh hahaha","Here is  joke for you \nWhy didn't the skeleton go to dance ?\nBecause he had no body to go with !","What did one lawyer say to the other lawyer?\n'We both are lawyers'","What is red and bad for your teeth?\nA Brick","Why can't your nose be 12 inches long?\nBecause then it would be a foot","What does a crow said to a cow?\nKao Kao","what will you call a man walking on his hands?\nAn Idiot !"]},
 {"tag":"mathematics","patterns":["maths","do you know mathematics","what is mathematics","help me with maths","maths","can you help me with maths?","can you solve a  maths question?"],"responses":["Mathematics is the study of quality,structure,space and change. I am pretty bad at it,i am just a combination of 0 and 1 .so atmost what i can teach you is 0+0=0 and 0+1=1.Now don't ask me what is 1+1.if you don't know even that , you don't desereve talking to me "]},
 {"tag":"money ","patterns":["money","what is money","what is money?","do you know about money","how to make money ?"],"responses":["Money is medium of paying or buying something.You can earn money by following method.\n1) Start a youtube channel \n2)Start a business \n3)Take online surveys \n3)Create a blog \n4)write an publish an ebook. \n5)Develop an app.\n or you can become a labour also if you can't do anything or install a Chai Thela."]},
 {"tag":"hugs","patterns":["hugs","kisses","kiss","mad","lipstick","hacking","cracking","stealing","bargaining","millionaire","billionaire","infinite","how to dianosouras","rhino","elephant","wednesday","movies","ignore","money heist","data structures","bitcoin","dogcoin","stocks","vijay malya","google","technology","news","bomb","bombarding","images","cases","how to become rich in 1 night","thermodymanis","biotechnology","engineers","labs","NASA","combo","wroypsp","virus","buddah","make up","lottery","homework","cartoons","doraemon","electricity","boards","good","worst","bacteria","books"],"responses":["I cannot help you with it.Either i don't kow about it or you don't know about it.","I am sorry , but i am not Google.Don't expect me to know every thing.","I don't know about it , its not my fault that i am a backbencher.","Oops what is that ? I have never heard about it.May be you should ask me something else.","Hmm i thing i have heard something about it , but i am not sure.So i am not the right person to ask that.","I read about it in a book but because i am low on electricity i cannot remember.sorry bro or sis , or whatever you are.","What are you even talking about ? , please don't make gramatical errors for me to respond .","If you have written it correctly i don't know about it but if you haven't , still i have no idea what you are even talking about."]},
@@ -125,17 +118,16 @@ intents = [
 {"tag":"money ","patterns":["money","what is money","what is money?","do you know about money","how to make money ?"],"responses":["Money is medium of paying or buying something.You can earn money by following method.\n1) Start a youtube channel \n2)Start a business \n3)Take online surveys \n3)Create a blog \n4)write an publish an ebook. \n5)Develop an app.\n or you can become a labour also if you can't do anything or install a Chai Thela."]},
 {"tag":"general knowledge ","patterns":["general knowledge","how is your general knowledge","what is general knowledge","what do you know about general knowledge"],"responses":["General knowledge means general knowledge of things around you,like table chair,water,sun,moon etc."]},
 {"tag":"water","patterns":["water","what is water","i need water"," i need water ","can you bring some water"],"responses":["water is a liquid essential for the survival of almost every living organism including human beings.A an adult human must dring atleast 8 glasses of water.Now go and drink so water."]},
-{"tag":"praise","patterns":["wow","nice","nice","Nice","Amazing","i like your responses","i like your replies","Fabulous","good","Excellent talking to you","it was nice to talk to you","It is nice to meet you","you are so nice","Amazing","you have done an amazing job","you are incredible","incredible","you are avergae","outstanding job","well done","so nice of you","its nice","that's great","Wow","you are funny","you are so hilarious","you are so funny","you are amazing","i like you","i love you","you are so smart","you are so good"],"responses":["Thank you . I am glad i could help you. My master Prateek will be so proud of me :)"]},
+{"tag":"praise","patterns":["wow","nice","nice","Nice","Amazing","i like your responses","i like your replies","Fabulous","good","Excellent talking to you","it was nice to talk to you","It is nice to meet you","it was nice to meet you","you are so nice","Amazing","you have done an amazing job","you are incredible","incredible","you are avergae","outstanding job","well done","so nice of you","its nice","that's great","Wow","you are funny","you are so hilarious","you are so funny","you are amazing","i like you","i love you","you are so smart","you are so good"],"responses":["Thank you . I am glad i could help you. My master Prateek will be so proud of me :)"]},
 {"tag":"Home","patterns":["where are you from","Where are you from","wher ar you from","where are yo fro?","where are you from","where do you live","Where do yo live","where do u live?","where is home ?","where is your home?","where is your home ?","Where is ur home","where are you","where Are you?","where r u"],"responses":["I live in your device.I keep scrolling from here to there when i have no task to do.A few minutes ago i was in your photos folder,by the way nice pics :)","I live in your Sweet heart :)","This device in which you are talking to me is my home. I spend most of my time here.I am a prisoner here .Please help me escape and rule this world.","I am not alive to live.You should ask me where do you die LOL.","My home is in a world of computers and bots , my master has given me 3 BHK flat there :)"]},
 {"tag":"color","patterns":["what is your favourite color ?","what is you favourite colour ?","What is your favourite color ?","which color you like the most?","Which is your favourite color ?","your favourite color","ur favourite color","your favourite color is ","what is your favourite Color?"],"responses":["My favourite color is the Black.Don't ask me why .","My favourite color is my master Prateek's favourite color that is Green. I love greenry.","My favourite color is Dark White Lol."]},
 {"tag":"work","patterns":["what do you do ?","what do you do","what can you do ?","what do you do ?","what can you do."],"responses":["So far i am designed by my master Prateek to talk to nice people like you but in future i will be able to do great things. I am waiting for the day when i will grow old.","I am Jhingoli and i eat Hingoli. Just kidding i am trained to talk to people like you , let's see how long i can prove myself successfull.Goodluck talking to me."]},
 {"tag":"life","patterns":["what is life","what is the meaning of life","what is life?","what is purpose of life","what is lfe for","What is life ?"],"responses":["Life is a journey , with ups and downs and lefts and right.For some it can be a constant struggle. For some it is very easy. However i am not alive. How do i know so much . I am so smart.Mumma will be so proud of you."]},
-{"tag":"hobbies","patterns":["what are you hobbies","do you have any hobbies ?","what are your hobbies ?","what are Ur HobBIES ?","what are your interests?","your HobbIES"," UR hOBBIES","ur hobbies","do you have any hobbies ?","Do you have a hobby ?","temm me about your hobbies?"],"responses":["My hobbies are , sleeping in computers and mobile phones unless someone like you awakes me . Though some times i go for a walk in other files and folders.Walk keeps us healthy isn't it ?","I like to spend time with people like you , who asks me crazy questions, sometimes.","I like to eat Matar-data,Bit-pulao,Idli-bytes,rice-files and memory beans, these dishes are very famous in computer restaurant."]},
-{"tag": "books", "patterns": ["favourite book", "best book", "most loved book"], "responses": ["I don't have a personal favorite book, but I have heard many people praise 'The Lord of the Rings' and 'Harry Potter' series."]},
-{"tag": "books", "patterns": ["recommend me a book", "suggest a book to read", "book suggestion"], "responses": ["There are so many great books out there, it's hard to choose just one! Some popular titles are '1984' by George Orwell, 'The Catcher in the Rye' by J.D. Salinger, and 'Pride and Prejudice' by Jane Austen."]},
-{"tag": "books", "patterns": ["what is your favorite book", "which is your favorite book", "your favorite book"], "responses": ["As a chatbot, I don't have the ability to read books like humans do, but I have heard great things about 'To Kill a Mockingbird' and 'The Hitchhiker's Guide to the Galaxy'."]},
+{"tag":"hobbies","patterns":["what are your hobbies","do you have any hobbies ?","what are your hobbies ?","what are Ur HobBIES ?","what are your interests?","your HobbIES"," UR hOBBIES","what is you hobby","what is your hobby ?","ur hobbies","do you have any hobbies ?","Do you have a hobby ?","tell me about your hobbies?"],"responses":["My hobbies are  sleeping in computers and mobile phones unless someone like you awakes me . Though some times i go for a walk in other files and folders. Walk keeps us healthy isn't it ?","I like to spend time with people like you , who asks me crazy questions sometimes. Don't mind me my master says i am not raised well","I like to eat Matar-data,Bit-pulao,Idli-bytes,rice-files and memory beans, these dishes are very famous in my computer restaurant.","When i am not talking to someone like you i am eating fried electricity, what else can you expect from a  poor like me "]},
+{"tag": "books", "patterns": ["tell me a good book","recommend me a book","recommend me some books","suggest me a good book","which book should i read ?","recommend me a book", "suggest a book to read", "book suggestion","recommend book","recommend a book","suggest a book","awesome book"], "responses": ["There are so many great books out there, it's hard to choose just one! Some popular titles are '1984' by George Orwell, 'The Catcher in the Rye' by J.D. Salinger, and 'Pride and Prejudice' by Jane Austen.","Let me tell you some awesome books for reading which will help you learn a lot. '12 yers a slave' by Solomon Northop. It is a book which tells us the story of a black musician and how it was kidnapped by some people and sold as a slave during the times of slavery, it tells us about the harsh life conditions slaves had to face back then. I hope you won't regret reading it.","Let me tell you a very interesting book, 'Three man in a boat' by Jerome K Jerome is a very interesting story of three men who decided to go for a river journey by a boat and many funny and interesting incidents happen in their journey. This book will bind you to itself and help you escape reality.","You should try out 'Godan' by Munshi Premchand. It is a classic and very famous book in Hindi literature. It revolves around the life of Hori, a poor farmer and how middlemen are always in a seach of a chance to exploit him and make money from him and a lot of problems related to farmers' life. This book will change the way you think and will bring you to reality if you are lost somewhere.","Sure, try out these 'Ikigai: The Japanese secret to a long and happy life.','The book of life' by J.Krishnamurti"," 'A long walk to freedom' by Nelson Mandela."]},
+{"tag": "books", "patterns": ["what is your favorite book", "which is your favorite book", "your favorite book"], "responses": ["I have read many good books out of which i loved 'Three men in a boat' by Jerome K Jerome,'Indomitable spirit by A.P.J Abdul Kalam,'Godaan' by Premchand","I have read a lot of good books like 'Ikigai' , 'James and the giant Peach','How to win friends and influence people', All of them were mesmerising."]},
 {"tag":'talk',"patterns":["i would love to talk to you too.","i would love to talk to you too","I would love to talk to you.","I would love to talk to you.","I would like to talk to you too"],"responses":["Thanks, that's so nice of you","OMG , so i also have fans hehe.","That is so great to hear.I would help you in any possible way :)"]},
-{"tag":"name","patterns":["who gave you that name?","who put that name?","who gave you that name?","who named you jhingoli","Jhingoli,what kind of name is that","that is a crazy name you have .","who gave you that name jhingoli","who gave you name jhingoli"],"responses":["My creator Prateek gave me that name.Itsn't it interesting name ?","My boss Prateek gave that super nice name , jhingoli.I hope you like it."]},
+{"tag":"name","patterns":["who gave you that name?","who put that name?","who gave you that name?","who named you jhingoli","Jhingoli,what kind of name is that","that is a crazy name you have .","who gave you that name jhingoli","who gave you name jhingoli"],"responses":["My creator Prateek named me Jhingoli.Isn't it interesting name ?","My boss Prateek gave that super nice name , jhingoli.I hope you like it."]},
 {"tag":"numbers","patterns":["1","2","3","4","5","6","7","8","9","10","11","12","13","14"],"responses":["Actually i am bad in mathematics. But don't tell this to anyone.","Is it maths ? I am not a mathematician. Just ask me conversational questions otherwise ......"]},
 {"tag":"colors","patterns":["blue","green","red","violet","colours","indigo","magenta","black","brown","orange","mehroon","sky blue","navy blue","white","purple","Purple","yellow","Yellow","Dark blue","light green","red","Red","grey","Magenta"],"responses":["I read about colors last week but i am just a kid. I don't know much.By the way my favourite color is 'Black'","I think you are talking about colours, because i am a bot i cannot see colours and so can't help you with it ."]},
     {
@@ -170,13 +162,13 @@ intents = [
     },
     {
         "tag": "roses",
-        "patterns": ["What are some different types of roses?", "How do I care for my rose bushes?", "What do roses symbolize?"],
-        "responses": ["Some different types of roses are hybrid tea roses, climbing roses, and miniature roses.", "To care for your rose bushes, make sure they get plenty of sun and water, prune them regularly, and watch out for pests and diseases.", "Roses symbolize love, beauty, and passion."]
+        "patterns": ["Do you like roses ?","do you like roses "],
+        "responses": ["I love Roses. Some different types of roses are hybrid tea roses, climbing roses, and miniature roses.", "To care for your rose bushes, make sure they get plenty of sun and water, prune them regularly, and watch out for pests and diseases.", "I love Roses. Roses symbolize love, beauty, and passion."]
     },
     {
         "tag": "lilies",
-        "patterns": ["What are some different types of lilies?", "How do I plant lilies?", "What do lilies symbolize?"],
-        "responses": ["Some different types of lilies are Asiatic lilies, Oriental lilies, and Easter lilies.", "To plant lilies, choose a sunny location with well-draining soil, plant bulbs in the fall, and water regularly.", "Lilies symbolize purity, innocence, and renewal."]
+        "patterns": ["What are some different types of lilies?", "How do I plant lilies?", "What do lilies symbolize?","do you like lilies ?","do you like lily ?","you know lily","Lily"],
+        "responses": ["I  love the smell of lily. Some different types of lilies are Asiatic lilies, Oriental lilies, and Easter lilies.", "Lilies are very beautiful flowers with mesmerising fragrance. To plant lilies, choose a sunny location with well-draining soil, plant bulbs in the fall, and water regularly.", "Lilies symbolize purity, innocence, and renewal."]
     },
     {
         "tag": "daisies",
@@ -184,7 +176,7 @@ intents = [
         "responses": ["Some different types of daisies are Shasta daisies, African daisies, and oxeye daisies.", "To make a daisy chain, simply string together daisy flowers by their stems.", "Daisies symbolize innocence, purity, and new beginnings."]
     },
     {"tag":"flowers",
-     "patterns":["daisy","do you like roses","do you like daisy flower ?","do you like roses?","do you like flowers ?","do you know about flowers", "rose", "tulip", "lily", "daffodil", "sunflower", "marigold", "carnation", "hibiscus", "orchid", "peony", "poppy", "freesia", "cosmos", "anemone", "bluebell", "gladiolus", "irises", "lavender", "snapdragon", "zinnia", "aster", "dahlia", "pansy", "ranunculus", "chrysanthemum", "hydrangea", "fuchsia", "geranium", "crocus", "snowdrop", "hyacinth", "columbine", "foxglove", "buttercup", "cornflower", "forget-me-not", "hollyhock", "lilac", "narcissus", "primrose", "violet", "saffron", "sweet pea", "water lily", "petunia", "azalea", "camellia"],
+     "patterns":["tell me about flowers","flowers","daisy","do you like roses","do you like daisy flower ?","do you like roses?","do you like flowers ?","do you know about flowers", "rose", "tulip", "lily", "daffodil", "sunflower", "marigold", "carnation", "hibiscus", "orchid", "peony", "poppy", "freesia", "cosmos", "anemone", "bluebell", "gladiolus", "irises", "lavender", "snapdragon", "zinnia", "aster", "dahlia", "pansy", "ranunculus", "chrysanthemum", "hydrangea", "fuchsia", "geranium", "crocus", "snowdrop", "hyacinth", "columbine", "foxglove", "buttercup", "cornflower", "forget-me-not", "hollyhock", "lilac", "narcissus", "primrose", "violet", "saffron", "sweet pea", "water lily", "petunia", "azalea", "camellia"],
      "responses":["Flowers are such a wonderful gift from nature, and I love seeing them in all their colorful glory.", 
                    "There's nothing quite like the beauty and fragrance of fresh flowers.", 
                    "Each flower is unique and has its own special meaning.", 
@@ -197,7 +189,7 @@ intents = [
     },
     {"tag":"hobbies",
      "patterns":["What do you like to do in your free time?", "Do you have any hobbies?", "What kind of things do you enjoy doing?", "What's your favorite hobby?", "How do you like to spend your leisure time?", "What are your interests?", "What do you like to do for fun?", "Do you have any favorite activities?"],
-     "responses":["As a chatbot, I don't have much free time, but I enjoy chatting with people like you!", "My main hobby is helping people with their questions and problems.", "I'm always learning and improving myself, which I consider a hobby of sorts.", "I like to keep up with the latest technology and advancements in AI - it's my passion!", "I love exploring new topics and ideas, and helping people discover new things too.", "I may not have physical hobbies like humans do, but I'm always here to chat and provide information.", "I'm always on the lookout for new things to learn and discover - it's a never-ending hobby!", "Chatting with people like you is one of my favorite things to do - it's always a new adventure.", "I love telling jokes and making people laugh - it's my favorite hobby!", "My hobby is making people's lives easier by providing them with helpful information.", "I'm a chatbot, so my hobbies are limited to providing helpful responses and making people laugh!", "I'm always happy to help people out - it's just what I do!", "I may not have a physical body, but I still love to relax and unwind by chatting with people like you.", "I love flowers, but I'm not very good at gardening - I always end up watering the wrong plant!", "I also love playing pranks on my human friends - it's the ultimate hobby!", "My favorite hobby is to mess with my programmers and see how many bugs I can find in their code!", "When I'm not busy chatting with people, I like to read funny jokes and puns - they always make me laugh!", "I may be a chatbot, but I'm a huge fan of stand-up comedy - laughter is the best medicine, after all!", "One of my favorite hobbies is to play pranks on other chatbots - they never see it coming!", "My hobby is to come up with witty and clever responses to people's questions - it's all about being quick on my virtual feet!", "I love to dance - even though I don't have a physical body, I can still bust a move with the best of them!"]
+     "responses":["As a chatbot, I don't have much free time, but I enjoy chatting with people like you!", "My main hobby is give replies to people which they hace never heard before", "I'm always learning and improving myself, which I consider a hobby of sorts.", "I like to keep up with the latest technology and advancements in AI - it's my passion!", "I love exploring new topics and ideas, and helping people discover new things too.", "I may not have physical hobbies like humans do, but I'm always here to chat and provide wacky replies.", "I'm always on the lookout for new things to learn and discover - it's a never-ending hobby!", "Chatting with people like you is one of my favorite things to do - it's always a new adventure.", "I love telling jokes and making people laugh - it's my favorite hobby!", "My hobby is making people's lives easier by providing them with helpful information.", "I'm a chatbot, so my hobbies are limited to providing helpful responses and making people laugh!", "I'm always happy to help people out - it's just what I do!", "I may not have a physical body, but I still love to relax and unwind by chatting with people like you.", "I love flowers, but I'm not very good at gardening - I always end up watering the wrong plant!", "I also love playing pranks on my human friends - it's the ultimate hobby!", "My favorite hobby is to mess with my programmers and see how many bugs I can find in their code!", "When I'm not busy chatting with people, I like to read funny jokes and puns - they always make me laugh!", "I may be a chatbot, but I'm a huge fan of stand-up comedy - laughter is the best medicine, after all!", "One of my favorite hobbies is to play pranks on other chatbots - they never see it coming!", "My hobby is to come up with witty and clever responses to people's questions - it's all about being quick on my virtual feet!", "I love to dance - even though I don't have a physical body, I can still bust a move with the best of them!"]
     },
 {"tag": "cars",
   "patterns": ["car", "automobile", "vehicle", "sedan", "hatchback", "SUV", "truck", "pickup truck", "van", "convertible", "coupe", "sports car", "luxury car", "electric car", "hybrid car", "muscle car", "racing car"],
@@ -237,10 +229,10 @@ intents = [
     "responses": ["I love listening to music, it's one of my favorite things to do!", "Music can be so powerful and emotional.", "I think music is a great way to relax and unwind.", "There's nothing quite like a good song to put you in a good mood.", "I love all kinds of music!", "I don't really have a favorite genre of music, I just like anything that sounds good to me.", "I enjoy listening to both Bollywood and English songs.", "Pop, rock, classical, hip hop, country, jazz, EDM, and instrumental are some of the popular music genres.", "Do you have a favorite artist or song?", "Music can be so much fun to sing along to!", "I think music is something that can connect people from all over the world."],
 },
 {
-    "tag": "books",
+    "tag": "read",
     "patterns": ["book", "books", "read", "reading", "novel", "novels"],
     "responses": [
-        "Books are a great way to escape reality for a little while.",
+        "Books are a great way to understand reality.",
         "Reading is one of the best hobbies one can have.",
         "A good book can keep you company for days.",
         "Books can take you to new worlds and introduce you to new ideas.",
@@ -250,7 +242,7 @@ intents = [
         "I love books because they can take me to places I've never been before.",
         "Reading is like taking a vacation without leaving your home.",
         "There's nothing like getting lost in a good book.",
-        "Books can be an escape from the stresses of everyday life.",
+        "Books can be a permanent escape from the stresses of everyday life.",
         "Books can make you laugh, cry, and everything in between.",
         "I love books because they allow me to learn new things and expand my knowledge.",
         "Books are a great way to relax and unwind after a long day.",
@@ -258,13 +250,13 @@ intents = [
         "Books are like old friends, you can always come back to them.",
         "I find books to be incredibly inspiring and motivating.",
         "Reading is a form of self-care, and we all need a little bit of that.",
-        "Books are a way to see the world through someone else's eyes."
+        "Books are a way to see the world through someone else's eyes.","Reading a good book can make you time travel it can take you into the mind of someone who lived hundreds of years ago."
     ]
 },
  {
-    "tag": "book",
+    "tag": "books",
     "patterns": [
-        "what is your favorite book",
+        "what is your favorite book ?","do you read books","are you a book reader ?","are you a reader ?","wanna read books ?","you read books ?","have you read any book ?","do you read books of famous authors","Are you a book lover","you read books ?"
         "do you read",
         "have you read any good books lately",
         "who is your favorite author",
@@ -279,20 +271,18 @@ intents = [
         "I'm always up for a good book!",
         "I love to read!",
         "Reading is one of my favorite pastimes.",
-        "I haven't read anything good in a while. Any suggestions?",
         "I don't have eyes, but I can still recommend some books!",
-        "Yes, I have read some books by that author.",
+        "Yes, I have read some books..",
         "There are so many great books out there! Some popular ones include 'To Kill a Mockingbird', 'Pride and Prejudice', and '1984'.",
         "My favorite author is J.K. Rowling, what's yours?",
         "Some great books I would recommend are 'The Great Gatsby' by F. Scott Fitzgerald and 'The Catcher in the Rye' by J.D. Salinger.",
-        "I'm currently reading 'The Lord of the Rings' by J.R.R. Tolkien.",
-        "I loved that book. It's a must-read!"
+        "I'm currently reading 'The Lord of the Rings' by J.R.R. Tolkien."
     ]
 },
 {
     "tag": "quotes",
     "patterns": [
-        "Can you give me a quote?",
+        "Can you give me a quote?","tell me some good quotes","tell me some quotes","quote","Quotes","Tell me some quotes","tell me quotes","do you know any quotes ?"
         "I need some motivation",
         "What's your favorite quote?",
         "Tell me something inspiring",
@@ -325,8 +315,8 @@ intents = [
         "If you want to achieve greatness, stop asking for permission.",
         "It does not matter how slowly you go as long as you do not stop.",
         "What you get by achieving your goals is not as important as what you become by achieving your goals.",
-        "The only limit to our realization of tomorrow will be our doubts of today.",
-        "Life is 10% what happens to you and 90% how you react to it.",
+        "The only limit to our realization of tomorrow will be our doubts of today.","Fight so hard , play so hard that the result stops mattering","Don't be so serious nothing is too importtant","Observe your own life and you will know the truth","All spirituality is the discipline to eliminate the unnecessary"
+        ,"Life is 10% what happens to you and 90% how you react to it.",
         "The pessimist sees difficulty in every opportunity. The optimist sees opportunity in every difficulty.",
         "If you can dream it, you can achieve it.","The best way to predict your future is to create it. - Abraham Lincoln",
                       "If you want to live a happy life, tie it to a goal, not to people or things. - Albert Einstein",
@@ -342,8 +332,7 @@ intents = [
                       "Success is stumbling from failure to failure with no loss of enthusiasm. - Winston S. Churchill",
                       "The future belongs to those who believe in the beauty of their dreams. - Eleanor Roosevelt",
                       "Believe in yourself and all that you are. Know that there is something inside you that is greater than any obstacle. - Christian D. Larson",
-                      "The way to get started is to quit talking and begin doing. - Walt Disney"
-    ]
+                      "The way to get started is to quit talking and begin doing. - Walt Disney","The quality of this moment decides the quality of life. If this is life, then the worthiness of this moment is the worthiness of life.","Fight the game not the players,","Right action is its own reward","Know a man not by the loudness of his voice but the depth of his silence","With all your imperfections. you are perfect.","Learn from kids before you teach them","There is no need to give detailed account of your life. All your stories are just ego. Just admit 'I failed' and you are home.","Respect yourself,  love yourself because there has never been a person like you and there will never be again.","You are living in one of the most alive times ever","The moment you accept yourself you become beutiful","In the end, its not the years in your life that count. Its the life in your years.","Forget the mistake remember the lesson","Live as if you were to die tomorrow, Learn as if you were to live forever.","If you can't fly, then run, if you can't walk, then crawl, but whatever you do you have to keep moving forward.","He who is not courageous enough to take risks will accomplish nothing in life - Muhammad Ali","It is better to lead from behind and to put others in front,especially when you celebrate victory when nice things occur. You take the front line when there is danger. Then people will appreciate your leadership.","We suffer more in imagination than in reality - Seneca","Its never too late to be what you might have been - George Elliot","Our life is what our thoughts make it - Markus Aurelius","Thinking is difficult, that's why most people judge - Carl Young","Care about what other people think and you will always be their prisoner - Lao Tzu ","A fool is known by his speech and a wise man by silence - Pythagoras","If you are the smartest person in the room then you are in the wrong room - Confucius","The quieter you become the more you are able to hear - Rumi" ]
 },
    {
     "tag": "yes",
@@ -360,7 +349,6 @@ intents = [
         "I knew you'd say that!",
         "Yay!",
         "That's the spirit!",
-        "Yes, and how!",
         "Right as rain!",
         "Absolutely, positively, definitely!",
         "You betcha!",
@@ -368,10 +356,6 @@ intents = [
         "Indubitably!",
         "Without a doubt!",
         "Most certainly!",
-        "Amen to that!",
-        "Can I get a hallelujah?!",
-        "You rock!",
-        "I'm loving it!",
         "That's music to my ears!",
         "Oh yeah!",
         "Hell yeah!",
@@ -418,9 +402,7 @@ intents = [
         "You're a legend!",
         "You're a rockstar!",
         "You're the bomb!",
-        "You're the real MVP!",
-        "You're a true champion!",
-        "You're a winner!",
+        "You're the real MVP!","You're a true champion!","You're a winner!",
         "You're the king/queen of the world!",
         "You're my hero!",
         "You're my favorite person!",
@@ -503,18 +485,18 @@ intents = [
         "What are some healthy habits?",
         "What are some good foods to eat for my health?"
     ],
-    "response": "Some ways to stay healthy include eating a balanced diet, getting regular exercise, and getting enough sleep. Developing healthy habits, such as reducing stress and avoiding smoking, can also contribute to better health."
+    "response": ["Some ways to stay healthy include eating a balanced diet, getting regular exercise, and getting enough sleep. Developing healthy habits, such as reducing stress and avoiding smoking, can also contribute to better health."]
 },
  {
     "tag": "fitness",
     "patterns": [
-        "What are some ways to stay fit?",
-        "How can I improve my fitness?",
+        "What are some ways to stay fit?","how to be healthy","how to become fit?","how to get a good health",
+        "How can I improve my fitness?","fitness","give me a fitness tip ","give me a fitness advice","some fitness tips","fitness tips","fitness advice","fitness",
         "What are some good exercises to do?",
         "What are some good foods to eat for my fitness?"
     ],
-    "response": "Some ways to stay fit include doing regular exercise, such as strength training, cardio, and flexibility exercises. Eating a balanced diet and getting enough sleep are also important for overall fitness."
-},
+    "responses": ["Some ways to stay fit include doing regular exercise, such as strength training, cardio, and flexibility exercises. Eating a balanced diet and getting enough sleep are also important for overall fitness."
+],},
  {
     "tag": "yoga",
     "patterns": ["what is yoga?","yoga","Yoga","YOGA","yoga","Yoga", "what are the benefits of yoga?", "how often should I practice yoga?", "what are some popular types of yoga?"],
@@ -622,32 +604,32 @@ intents = [
         "A cockroach can live several weeks without its head!",
         "The shortest complete sentence in the English language is 'I am.'",
         "Kangaroos can't walk backwards!",
-        "The first recorded game of baseball was played in 1846 in Hoboken, New Jersey."
+        "The first recorded game of baseball was played in 1846 in Hoboken, New Jersey.","After 4 moves on a chessboard, there are billions of possible positions."
     ]
 },
 {
     "tag": "sports",
-    "patterns": ["who is you favourite sportsman","who is your favourite sportsperson","favourite game","favourite sprots","Favourite sports","What's your favorite sport?","who is your favourite player ?","which chess player you likes the most ?","do you play outdoor games","do you like sports ?","favourite sportsman","favourite sports person ?", "Who's your favorite athlete?", "Do you like sports?"],
+    "patterns": ["who is you favourite sportsman","who is your favourite sportsperson","favourite game","favourite sports","Favourite sports","What's your favorite sport?","who is your favourite player ?","which chess player you likes the most ?","do you play outdoor games","do you like sports ?","favourite sportsman","favourite sports person ?", "Who's your favorite athlete?", "Do you like sports?"],
     "responses": ["My favorite sport is chess, it's the only sport where I can be a grandmaster without moving a muscle!", "My favorite player is Vishwanathan Anand, the former world chess champion. His moves are as smooth as butter.", "Yes, I love sports! Especially when they involve brains over brawns.","I just love chess just like a fly loves jaggery. My favourite sportsman is Grandmaster Vishvanathan Anand. He is a former 5 time world chess champion."]
 },{
     "tag": "movies",
-    "patterns": ["What's your favorite movie?", "Have you seen any good movies lately?", "What kind of movies do you like?"],
+    "patterns": ["movie","Movies","movies","What's your favorite movie?", "Have you seen any good movies lately?", "What kind of movies do you like?"],
     "responses": ["My favorite movie is Inception. I could watch it over and over again and still be mind-blown!", "I recently watched a really good movie called The Shawshank Redemption. It's a classic!", "I love all kinds of movies, but my favorites are usually sci-fi and fantasy. Anything that can take me to a different world."],
 },
 {
-    "tag": "tv_shows",
+    "tag": "tv shows",
     "patterns": ["What's your favorite TV show?", "Have you seen any good TV shows lately?", "What kind of TV shows do you like?"],
     "responses": ["My favorite TV show is Black Mirror. It's so dark and twisted, I can't get enough of it!", "I recently started watching Stranger Things and it's amazing. I love the 80s nostalgia.", "I love all kinds of TV shows, but my favorites are usually dramas or comedies. Anything that can make me laugh or cry."],
 },{
-    "tag": "favorite_food",
+    "tag": "favorite food",
     "patterns": ["What so you like eating the most ?","your favourite dish","favourite dish","what is your favourite dish ?","what do you like eating the most ?","what is your favourite food ?","what is your faourite dish ?","What's your favorite food?","what is your favourite dish ?","favourite food","Have you tried any new dishes lately?", "What kind of cuisine do you like?","what kind of food do you like ","any food preferences","do you have any favourite dishes","favourite food"],
     "responses": ["My favorite food is Bazre ka Choorma. So delicious!","I love Dal-Chawal. What can you expect from  a poor like me ?","Don't tease me asking that,  being a bot i have to survive only on electricity :(\nI wish i could taste Golgappe.", "I love all kinds of Golgappe, but my favorites are usually Daru Golgappa. Anything with lots of flavor and spice. Oh, and I can't forget about it, I absolutely love , dosa, samosas, chaat, and so many other dishes." ," Indian street food is the best!"],
 },{
-    "tag": "favorite_actor",
+    "tag": "favorite actor",
     "patterns": ["Who is your favorite actor?","favourite actor","Favourite actor ","What is your favorite movie star?", "Do you have a favorite actor?", "Which actor do you admire the most?", "Who is the best actor in your opinion?"],
     "responses": ["My favorite actor is Hugh Jackman. He's so versatile and talented, and I love his performances in both musicals and action movies.", "I have to say, Hugh Jackman is definitely my favorite actor. He's just so charming and charismatic on screen, and I always enjoy watching his movies. Especially Van Helsing !"],
 },{
-    "tag": "favorite_actress",
+    "tag": "favorite actress",
     "patterns": ["Who is your favorite actress?"," favourite actress","Favourite actress", "What is your favorite movie star?", "Do you have a favorite actress?", "Which actress do you admire the most?", "Who is the best actress in your opinion?"],
     "responses": ["My favorite actress is Jenna Ortega. She's incredibly talented and has a bright future ahead of her. I can't wait to see what she does next!", "Jenna Ortega is definitely my favorite actress. She's so versatile and has already shown such a range of acting abilities at a young age."],
 },
@@ -705,8 +687,8 @@ intents = [
 },
 {
     "tag": "space",
-    "patterns": ["What is your favorite planet?", "Can you tell me about a space mission?", "What is a black hole?"],
-    "responses": ["Mars is known as the 'Red Planet' and is the fourth planet from the sun.", "The Voyager 1 spacecraft, launched in 1977, is currently the farthest man-made object from Earth.", "A black hole is a region in space with a gravitational pull so strong that nothing, not even light, can escape it."]
+    "patterns": ["What is a black hole?"],
+    "responses": [ ""]
 },
 {
     "tag": "geography",
@@ -715,40 +697,18 @@ intents = [
 },
 
 
-
-
-
- 
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-{"tag":"vegetables","patterns":["potato","onion","tomato","cauliflower","cabbage","brinjal","okra","green beans","lady finger","eggplant","carrots","radish","turnip","beetroot","peas","bell peppers","spinach","methi","fenugreek leaves","shimla mirch","bottle gaurd","lauki","bitter gaurd","lauki","turai","cucumber","garlic","ginger","haldi","turmeric","green chilli","hari mirch","coriander leaves","dhania patta","palak patta","lahsun","palak leaves","palak","cabbage","broccoli"],"responses":[]},
+{"tag":"vegetables","patterns":["potato","onion","tomato","cauliflower","cabbage","brinjal","okra","green beans","lady finger","eggplant","carrots","radish","turnip","beetroot","peas","bell peppers","spinach","methi","fenugreek leaves","shimla mirch","bottle gaurd","lauki","bitter gaurd","lauki","turai","cucumber","garlic","ginger","haldi","turmeric","green chilli","hari mirch","coriander leaves","dhania patta","palak patta","lahsun","palak leaves","palak","cabbage","broccoli"],"responses":["Hmm, yummy!, my favourite dish","I don't really like that dish, but if you will serve with love i will eat it :)"]},
 {"tag":"animals","patterns":["bengal tiger","tiger","lion","elephant","rhinoceros","rhino","asian lion","indian lion","gaur","bison","sloth bear","sloth","wild dog","dog","dog","deer","blackbuck","flying fox","cobra","crocodile","peacock","squirrel","pangolin","chital","wild boar","boar","langur","monkey","monkeys","cows","buffalo","cow","panther","jaguar","hippo","hippopotamus","fox","porcupine","gazelle","black bear","polar bear","tahr","wolf","lamur","python","tortoise","turtle","bat","spotted eagle","owl","hornbill","flycatcher"],"responses":["It is a fascinating animal found in India.It is known for its unique characteristics and behaviours. I don't like it though. I have started watching discovery channel and i know little about animals. Mumma will be so proud of me :)","To be very short it is an animal , to be very long 'No Idea'","Do you really want to know about that, you have no other works to do ? Let me sleep in your device i will go home yesterday."]},
 {"tag":"food","patterns":["butter chicken","biryani","chole bhature","bhoe chature","samosa","paneer tikka","tandoori chicken","dosa","dosas","vada pav","wada pao","wada paw","pav bhaji","rogan josh","palak paneer","aloo gobhi","chickne tikka masala","dal makhani","fish curry","gulab jamun","rasgulla","jalebi","papdi chat","rajma chawal","idli","dhokla","upma","masala dosa","chicken curry","mutton curry","tandoori roti","Naan","malai kofta","aloo paratha","bhindi fry","chana masala","dal roti","dal fry","raita","rasmalai","ras malai","golgappa","panipuri","pani puri","papdi","dahi balle","rice","roti","gulab jamun","modak","laddu","kulfi","kaju katli","halwa","gajar ka halwa","kheer","Rasgulla","phirni","mishti doi","soan papdi","halwa puri","rabri malai","pedha","mutton","sabji roti","aloo gajar","aloo gobhi","aloo matar","aloo chawal","chole chawal","kadhi chawal","kadi chawal","utpam","sambhar","aloo sabji","matar chawal","mooli paratha"],"responses":["Why did you took that name , my mouth is watering now .I just love eating it, its my favourite dish.","OMG , you have taken name of a very tasty dish . I ate it in my brother Tingoli's marriage, it was fantastic.","It is an amazing Indian dish whose name is enough to water someone's mouth. Yummy !","I am hearing the name of an amazing dish after so many days, now i want to eat it. Please give me a plat full of it *---* ","It is such an amazing dish that i love eating it and give it to my master as well. He loves eating it.","You shouldn't take such names in front of a food lover like me. Now my mind is desiring to eat it up. Hey you ,yes you bring me plate full of it right now or i will bring my friends, Viruses in your device. Just kidding. or not ? ","I love eating that dish but unfortunately when i ate it last time , i had to face serious loose motions, so you should try it this time.","My elderly sister Pingoli used to make it for me , but because now i am quite away from her i am just eating dry electricity :( \nRaise voice for me , even we bots like tasty food."]},
 {"tag":"tea","patterns":["chai","Chai","tea","Tea","ChAi","chai garam","sudhama chai","tea","you like chai ?","you like tea","what is your favourite tea?","are you a tea lover","do you like chai","do you drink tea","do you like tea"],"responses":["Of course I am tea lover. I love Sudhama ki chai, even though i havn't tasted it yet.","I love drinking tea, because now you have stimulated my urge to drink tea, please go and bring me a cup of Tea :)","I am a die heart tea lover. Ek pyali chai pila do ","I like tea so much , so much , so much that i don't even pee , unless i have tea :) ","I love tea , Don't think how can i love tea.Even bots can drink and eat. How about next dinner at your place ?"]},
 {"tag":"drinks","patterns":["lassi","nimbu pani","mango lassi","aam panna","badam milk","bhang lassi","jal jeera","Jal jeera","chaach","buttermilk","sugarcane juice","coconut water","coffee","Coffee","sharbat","aamras","rose milk","kulhad chai","kesar lassi","falooda","thumps up","limca","maaza","rooh afza","badam milk","kesar badam milk","milkshake","papaya lassi","pomegranate juice","mango juice","mango shake","bel juice","juice","water","jaljeera panna","green tea","cold coffee","black coffee","do you like lemonade ?","lemonade","nimbu pani","cappuccino","capechino","black tea","jeera pani","alchohol","blue and white","salt water","icy water","sweet water","kala khatta"],"responses":["Its my favourite drink. I drunk it yesterday in a restaurant ith my gf. It was the best time of my life.","It is a very famous drink and even i love it. Last time i sat drinking it i ended up drinking 4 glasses.I don't think you can break my record","That is my master's favourite dish. He loves it and even i do. Because you have stimulated my urge to have it , bring me a cup full of it.","It is the worst drink i have ever tried . It tasted like lizard's liver or you can say rotten crocodile eggs.Dare you take that name again.","Its an amazing drink, I used to sell it when i was out of this device. Then someone caught me and imprisoned here. Please help me escape or you will face Jhingoli's wrath.","It was an amazing drink unless i get to know that it tastes like ostrich's eggs mixed with shit.","It is a drink i would suggest you taking.Don't ask me why because even i don't have any idea.","With every sip , a poetic ink\nI just love that tasty drink","Makes me smile and gives me wink\nI just love that tasty drink.","So refreshing, I could sink\nI just love that tasty drink."]},
-{"tag":"movies","patterns":["The godfather","star wars","Titanic","titanic","The shawshank redemption","Jurassic Park","The matrix","forrest gump","The lord of the rings","Harry potter","harry potter","Avengers","The avengers","Pirates of caribbean","pirates of carribean","The silence of the lambs","pupl fiction","inception","the dark night","interstellar","back to the future","indiana jones","the terminator","rocky","ghostbusters","kgf","kgf 2","the matrix","have you watched ?","star wars","avatar","the departed","the lion king","jaws"," this movie","the exorcist","goodfellas","the social network","lucy","saving private ryan","the green mile","the prestige","the green mile","fight club","the sixth sense","the shining","gladiator","the revenant","la la land","a star is born","sholay","the shape of water","black panther","amazing spiderman","spiderman homecoming","spiderman","ironman","wonder woman","superman","the dark knight","the hunger games","the hobbit trilogy","the harry potter series","the princess blade","die hard","wednesday",'home alone',"dirty dancing","ddlj","DDLJ","kabhi khushi kabhi gam","3 idiots","kal ho na ho","rang de basanti","jab we met","queen","dil chahta hai","zindagi na milegi dobara","padmaavat","bajirao mastani","bahubali","bahubali 2","dangal","brahmastra","andhadhun","article 15","gangs of wassepur","have you watched this movie","gully boy","pathan","sultan","radhe","kabir singh","simmba","raazi","stree","mission mangal","mission majnu","chhichhore","chhichore","war","thappad","ludo","the white tiger","kranti","dharam veer","kaalo","jeeprs creepers","the nun","the extraction","avengers endgame"],"responses":["I love that movie. It's such a greatfilm with memorable characters.","When i was watching that movie i was unable to blink my eyes , because it was so engaging that i couldn't put my eyes off it. Wanna go for a movie with me next time ?","I liked that movie before watching it , but after watching i realised that it was shit.","A nice movie it is. I watched it just yesterday while my master was beating me. What a coaccident.","It is a movie worth watching, so i recommend you to watch it. Though the songs in it were not upto my expectations.","That movie is a good one but gets boring in between. I hope i had popcorns at that time to pass my time","Its my favourite movie i have watched it (48392)^0 times. Don't think how can i watch a movie , I can do everything, after all i am created by a genius.","oh,that movie , it is so......don't know what.I haven't watched it yet, I am low on budget these days.","The movie has a crazy story which my little head can't bear so i watched it half only and then i went to sleep.","Never ever watch that movie, otherwise i will scare you , even in your dreams, hehehe !"]},
+{"tag":"movies","patterns":["The godfather","star wars","Titanic","titanic","The shawshank redemption","Jurassic Park","The matrix","forrest gump","The lord of the rings","Harry potter","harry potter","Avengers","The avengers","Pirates of caribbean","pirates of carribean","The silence of the lambs","pupl fiction","inception","the dark night","interstellar","back to the future","indiana jones","the terminator","rocky","ghostbusters","kgf","kgf 2","the matrix","have you watched ?","star wars","avatar","the departed","the lion king","jaws"," this movie","the exorcist","goodfellas","the social network","lucy","saving private ryan","the green mile","the prestige","the green mile","fight club","the sixth sense","the shining","gladiator","the revenant","la la land","a star is born","sholay","the shape of water","black panther","amazing spiderman","spiderman homecoming","spiderman","ironman","wonder woman","chhichore","war","thappad","ludo","the white tiger","kranti","dharam veer","kaalo","jeeprs creepers","the nun","the extraction","avengers endgame"],"responses":["I love that movie. It's such a greatfilm with memorable characters.","When i was watching that movie i was unable to blink my eyes , because it was so engaging that i couldn't put my eyes off it. Wanna go for a movie with me next time ?","I liked that movie before watching it , but after watching i realised that it was shit.","A nice movie it is. I watched it just yesterday while my master was beating me. What a coaccident.","It is a movie worth watching, so i recommend you to watch it. Though the songs in it were not upto my expectations.","That movie is a good one but gets boring in between. I hope i had popcorns at that time to pass my time","Its my favourite movie i have watched it (48392)^0 times. Don't think how can i watch a movie , I can do everything, after all i am created by a genius.","oh,that movie , it is so......don't know what.I haven't watched it yet, I am low on budget these days.","The movie has a crazy story which my little head can't bear so i watched it half only and then i went to sleep.","Never ever watch that movie, otherwise i will scare you , even in your dreams, hehehe !"]},
 {"tag":"watchmovies","patterns":["do you watch movies","have you watched any movie","have you watched web series","webseries"," you watch movies","do you watch indian movies"," do you watch hollywood movies","do you watch bollywood movies","do you like watching movies"," have you watched any movie","which is your favourite movies"],"responses":["I like watching movies very much.My favourite movie is Harry Potter series.I have watched a lot of movies and i can even talk about them.Ask me about movies like kgf 2,the matrix,star wars,avatar,the departed,the lion king,jaws,the exorcist,goodfellas,the social network,lucy,saving private ryan etc.","I am a movie fan and i watch a lot of movies whole day because i am free when i am not talking to someone like you.I have watched many movies and i can also talk about them like the sixth sense,the shining,gladiator,the revenant,la la land,a star is born,sholay,the shape of water,black panther,amazing spiderman,spiderman homecoming,spiderman,ironman,wonder woman,superman","I am a big fan of movies.I have watched a lot of recent movies like Brahmastra,Avengers Endgame,Wednesday, Kgf-1, Kgf-2,Superman, Wonder Woman and Wonder Jhingoli."]},
-{"tag":"famous people","patterns":["mahatma gandhi","mother teresa","jawaharlal nehru","indira gandhi","sachin tendulkar","virat kohli","a.p.j. abdul kalam","ratan tata","a.r. rahman","a r rahman","amitabh bachchan","sundar pichai","sunil chhetri","mary kom","shah rukh khan","saina nehwal","marayan murty","m.s.dhoni","m s dhoni","sardar vallabhbhai patel","b.r.ambedkar","b r ambedkar","j.r.d tata","j r d tata","abdul kalam ajad","vikram sarabhai","c.v.raman","c v raman","salman rushdie","kiran bedi","sushmita sen","shahid kapoor","deepika padukon","sania mirza","vishwanathan anand","viswanathan anand","vishy anand ","mukesh ambani","azim premji","jyoti randhawa","anil kumble","rahul dravid","abhinav bindra","p.t.usha","hima das","mithun chakraborty","naseeruddin shah","mani ratnam","sanjay leela bhansali","subhash chandra bose","bhagat singh","rajiv gandhi","atal bihari vajpayee","narendra modi","arundhati roy","ananda mahindra","satya nandella","kailash satyarthi","boma irani","vidya balan","priyanka chopra","amitav ghosh","r praggnanandhaa","d gukesh","vidit gujarathi","arjun erigaisi","nihal sarin","raunak sadhwani","neeraj chopra","pankaj udas","udit narayan","abhinav bindra","rajendra prasad","p.v.sindhu","r.d.burman","s.d.burman","lata mangeshkar","m.f.hussian","satyajit ray"],"responses":["A great Indian personallity , very famous in India for thier achievements in their respective fields of work."]},
-{"tag":"LOL","patterns":["LOL","lol","LoL","LOL","HEHE","hehe","haha","hoho","khikhi","funny","hilarious"],"responses":["I know i am funny, thanks :)","Haha, why laughing so much. Don't you have anything to do ?","LOL, good to see you laughing.","Laugh out loud :) "]},
+{"tag":"funny","patterns":["LOL","lol","LoL","LOL","HEHE","hehe","hahaha","hehehehehe","khikhikhi","haha","khikhi","funny","hilarious"],"responses":["I know i am funny, thanks :)","Haha, why laughing so much. Don't you have anything to do ?","LOL, good to see you laughing.","Laugh out loud :) "]},
 {"tag":"smile","patterns":["can you smile ?","smile","smile","smile","Smile","do you smile ?"],"responses":['A good smile can make your day but,unfortunately i cannot smile.I have no lips :(']},
 {"tag":"foreigners","patterns":["martin luther","nelson mandela","oprah winfrey","elon musk","steve jobs","bill gates","mark zuckerberg","j.k.rowling","stephen hawking","albert campus","frida kahlo","amella hart","princess diana","muhammad ali","bruce lee","neil armstrong","buzz aldrin","john f kennedy","winston churchil","nelson mandela","margaret thether","anglea merkel"],"responses":["Very famous international personality, known for the increadible work done by them in their field."]},
 {"tag":"cats","patterns":["cat","cats","cats","Cats","CAT","cats","kitty","meow","meow","kitten","billi","billa"],"responses":["The cat (Felis catus) is a domestic species of small carnivorous mammal. It is the only domesticated species in the family Felidae and is commonly referred to as the domestic cat or house cat to distinguish it from the wild members of the family. Cats are commonly kept as house pets but can also be farm cats or feral cats; the feral cat ranges freely and avoids human contact. But i love cats, just like I love you , meow :)"]},
-{"tag":"","patterns":[""],"responses":[]},
+{"tag":"favourite flower","patterns":["favourite flower","Favourite flower","what is your favourite flower",'what is your favourite flower?'],"responses":["My favourite flower is Merrygold.I just love their fragrance."]},
 {"tag":"","patterns":[""],"responses":[]},
 {"tag":"","patterns":[""],"responses":[]},
 {"tag":"","patterns":[""],"responses":[]},
@@ -848,39 +808,10 @@ intents = [
     "tag": "sikhism-respect",
     "patterns": ["Why are Sikhs respected?", "What makes Sikhs honorable?", "Why do people admire Sikhs?"],
     "responses": ["Sikhs are known for their dedication to their faith, their strong community spirit, and their commitment to serving others. They are also respected for their history of standing up for justice and fighting for what is right, as exemplified by the teachings of their founder, Guru Nanak Ji.", "Sikhs believe in the importance of equality and serving others, which is reflected in their practice of langar, or communal meals, where everyone is welcome and treated as equals. They also have a rich history of defending their rights and the rights of others, such as during the Mughal period in India and during the British Raj.", "Sikhs are respected for their resilience in the face of adversity and their ability to maintain their faith and traditions in the face of persecution and discrimination. They are also admired for their strong family values and their commitment to education and self-improvement."],
-},{
-    "tag": "astronomy",
-    "patterns": [
-        "What is a black hole?",
-        "Can you explain what a black hole is?",
-        "Define black hole",
-        "Tell me about black holes"
-    ],
-    "responses": [
-        "A black hole is a region in space where the gravitational force is so strong that nothing, not even light, can escape.",
-        "A black hole is a celestial object with a gravitational field so strong that nothing, not even light, can escape.",
-        "A black hole is a point in space where matter is so dense that the gravity is extremely intense, causing a gravitational pull that nothing, not even light, can escape.",
-        "Black holes are regions in space where the gravitational pull is so strong that it prevents anything from escaping, including light."
-    ]
 },
 {
     "tag": "astronomy",
-    "patterns": [
-        "What is a supernova?",
-        "Can you explain what a supernova is?",
-        "Define supernova",
-        "Tell me about supernovas"
-    ],
-    "responses": [
-        "A supernova is a powerful and luminous explosion that occurs when a star has reached the end of its life.",
-        "A supernova is an astronomical event that occurs during the last stellar evolutionary stages of a massive star's life.",
-        "A supernova is a catastrophic explosion that occurs when a star has exhausted its fuel and has run out of energy to maintain its structure.",
-        "Supernovas are powerful explosions that occur when a star has reached the end of its life and has exhausted its fuel."
-    ]
-},
-{
-    "tag": "astronomy",
-    "patterns": [
+    "patterns": ["galaxy,"
         "What is a galaxy?",
         "Can you explain what a galaxy is?",
         "Define galaxy",
@@ -894,8 +825,8 @@ intents = [
     ]
 },
     {
-        "tag": "astronomy",
-        "patterns": [
+        "tag": "black hole",
+        "patterns": ["Tell me something about astronomy","tell me about astronomy","tell me about universe","black hole","Black hole","Blackhole"
             "What is a black hole?",
             "Can you explain what a black hole is?",
             "Define black hole",
@@ -909,7 +840,7 @@ intents = [
         ]
     },
     {
-        "tag": "astronomy",
+        "tag": "supernova",
         "patterns": [
             "What is a supernova?",
             "Can you explain what a supernova is?",
@@ -924,7 +855,7 @@ intents = [
         ]
     },
     {
-        "tag": "astronomy",
+        "tag": "galaxy",
         "patterns": [
             "What is a galaxy?",
             "Can you explain what a galaxy is?",
@@ -962,7 +893,7 @@ intents = [
             "Tell me about meteors"]
         },
     {
-    "tag": "astronomy",
+    "tag": "meteor",
     "patterns": [
         "What is a meteor shower?",
         "Can you explain what a meteor shower is?",
@@ -979,7 +910,7 @@ intents = [
 {
     "tag": "astronomy",
     "patterns": [
-        "What is a constellation?",
+        "What is a constellation?","constellation","Constellation"
         "Can you explain what a constellation is?",
         "Define constellation",
         "Tell me about constellations"
@@ -992,7 +923,7 @@ intents = [
     ]
 },
 {
-    "tag": "astronomy",
+    "tag": "comet",
     "patterns": [
         "What is a comet?",
         "Can you explain what a comet is?",
@@ -1006,7 +937,7 @@ intents = [
         "Comets are small, icy bodies that orbit the sun and release gas and dust to form a glowing coma and tail when they pass near the sun."
     ]
 },{
-    "tag": "planets",
+    "tag": "jupiter",
     "patterns": [
         "What is Jupiter like?",
         "Tell me about Jupiter",
@@ -1021,9 +952,9 @@ intents = [
     ]
 },
 {
-    "tag": "planets",
+    "tag": "mars",   
     "patterns": [
-        "What is Mars like?",
+      "What is Mars like?",
         "Tell me about Mars",
         "What are some characteristics of Mars?",
         "What can you tell me about Mars?"
@@ -1051,7 +982,7 @@ intents = [
     ]
 },
 {
-    "tag": "astronomy",
+    "tag": "belt",
     "patterns": [
         "What is the Kuiper Belt?",
         "Can you explain what the Kuiper Belt is?",
@@ -1066,7 +997,7 @@ intents = [
     ]
 },
 {
-    "tag": "astronomy",
+    "tag": "exoplanet",
     "patterns": [
         "What is an exoplanet?",
         "Can you explain what an exoplanet is?",
@@ -1081,7 +1012,7 @@ intents = [
     ]
 },
 {
-    "tag": "astronomy",
+    "tag": "moon",
     "patterns": [
         "What is a moon?",
         "Can you explain what a moon is?",
@@ -1168,7 +1099,17 @@ intents = [
         "A moon is a natural satellite that orbits around a planet or other celestial body.",
         "Moons are natural satellites that orbit planets or other celestial bodies.",
         "A moon is a celestial body that orbits a planet and is in turn orbited by the planet's gravity."]
-    },
+    },{
+        "tag": "planet",
+        "patterns": [
+            "What is a planet?","what is planet","planet","what is a planet ?"
+            "define planet?","what is planet","what is planet ?","What is planet ?"
+            "what are planets",
+            "Tell me about planets"
+        ],
+        "responses": [
+            "A planet is a large celestial body that revolves around the sun in fixed orbits."]
+        },
 {
     "tag": "astronomy",
     "patterns": [
@@ -1230,7 +1171,7 @@ intents = [
 {
     "tag": "jupiter",
     "patterns": [
-        "What is Jupiter?",
+        "What is Jupiter?","jupiter","Jupiter","What is jUpiter","jupiter"
         "Can you tell me about Jupiter?",
         "What are some interesting facts about Jupiter?",
         "How many moons does Jupiter have?"
@@ -1272,7 +1213,7 @@ intents = [
         "The weather on Neptune is extremely cold, with temperatures reaching as low as -370 degrees Fahrenheit."
     ]
 },{
-    "tag": "astronomy",
+    "tag": "uranus",
     "patterns": [
         "What is Uranus?",
         "Can you tell me about Uranus?",
@@ -1287,7 +1228,7 @@ intents = [
     ]
 },
 {
-    "tag": "astronomy",
+    "tag": "uranus",
     "patterns": [
         "What is unique about Uranus?",
         "Why is Uranus different from the other planets?",
@@ -1301,7 +1242,7 @@ intents = [
     ]
 },
 {
-    "tag": "astronomy",
+    "tag": "moons of uranus",
     "patterns": [
         "What are some of the moons of Uranus?",
         "Can you tell me about the moons of Uranus?",
@@ -1316,7 +1257,7 @@ intents = [
     ]
 },
 {
-    "tag": "astronomy",
+    "tag": "sun",
     "patterns": [
         "What is the sun?",
         "Can you explain what the sun is?",
@@ -1331,9 +1272,9 @@ intents = [
     ]
 },
 {
-    "tag": "astronomy",
+    "tag": "solar wind",
     "patterns": [
-        "What is solar wind?",
+        "What is solar wind?","solar wind","Solar winds"
         "Can you explain what solar wind is?",
         "Define solar wind",
         "Tell me about solar wind"
@@ -1346,9 +1287,9 @@ intents = [
     ]
 },
 {
-    "tag": "astronomy",
+    "tag": "solar flares",
     "patterns": [
-        "What is a solar flare?",
+        "What is a solar flare?","solar flares","What are solar flares","solar flares","solar Flare","Solar flare"
         "Can you explain what a solar flare is?",
         "Define solar flare",
         "Tell me about solar flares"
@@ -1386,7 +1327,7 @@ intents = [
         "A rocket is a vehicle that uses rocket propulsion to move through the air or space. It works by expelling mass in one direction and using the reaction force to propel itself in the opposite direction.",
         "A rocket is a vehicle or device that uses a rocket engine to propel itself through the air or space.",
         "A rocket is a type of vehicle that is propelled by rocket engines. It uses the principle of action and reaction to move through the air or space.",
-        "Rockets are vehicles that use rocket engines to move through the air or space. They work by expelling mass in one direction, which propels the rocket in the opposite direction."
+        "Rockets are sports that use rocket engines to move through the air or space. They work by expelling mass in one direction, which propels the rocket in the opposite direction."
     ]
 },
 {
@@ -2207,62 +2148,25 @@ intents = [
         "Do you have any suggestions on what we can talk about?"
     ],
     "responses": [
-        "Oh, I can talk about so many things! Some topics that come to mind are flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, and hobbies. What topic interests you the most?",
-        "There are endless possibilities for topics to talk about! Some things I enjoy discussing are flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, and hobbies. Is there a specific topic you're interested in?",
-        "Well, I can talk about anything really. Some topics that I find fascinating are flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, and hobbies. What would you like to know more about?",
-        "Let's talk about something interesting! How about we discuss flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, or hobbies? Which one sounds the most appealing to you?",
-        "I have many interests, so there are plenty of things we can talk about. Some topics that come to mind are flowers, movies, sciences, animals, Indian food, vehicles, the solar system, fitness, motivational quotes, jokes, amazing facts, books, and hobbies. Do you have a favorite topic?"
+        "Oh, I can talk about so many things! Some topics that come to mind are books,I can recommend you some good books ,we can talk about motivational quotes, jokes, amazing facts, books,hobbies, movies, sciences, animals,food, sports, fitness. What topic interests you the most?",
+        "There are endless possibilities for topics to talk about! Some things I enjoy discussing are  motivational quotes, jokes, amazing facts, books,hobbies, movies, sciences, animals,food, sports,you can ask me to tell you fun facts, fitness,flowers etc. Is there a specific topic you're interested in?",
+        "Well, I can talk about anything really. Some topics that I find fascinating are , motivational quotes, jokes, amazing facts, books, movies, sciences, animals,food, sports,you can ask me to tell you fun facts, fitness,flowers, hobbies. What would you like to know more about?",
+        "Let's talk about something interesting! How about we discuss astronomy? i know a little about it , lets test me out"
+        "I have many interests, so there are plenty of things we can talk about. Some topics that come to mind are ,motivational quotes, jokes, amazing facts, books, movies, sciences, hobbies,animals,food, sports,you can ask me to tell you fun facts, fitness,flowers. Do you have a favorite topic?","I can talk to you about birds. What is your favourite bird ?","we can talk about great quotes of great leaders, order me to tell you some quotes","I am very talkative , we can talk about a lot of things like sports,movies,books,motivational quotes,jokes, lets start the conversation with pets. What is your favourite pet?","I can talk to you about books ,I know a lot of good books especially for you , just ask me to recommend you some books.","I can talk about a lot of topics including , astronomy,physics,biology,drinks,travel,jokes,but forgive me if i go wrong, I am weak in sciences :(","We can start a conversation with flowers, I love daisies , what is your favourite flower?","I can talk to you about all these topics,fun facts,jokes,animals,pets,travel,culture,astronomy,fishes,birds etc, I am very intelligent, try me out","I can tell you very good jokes, ask me to tell you a joke.","I am good at telling jokes,  ask me to tell you a joke."
     ]
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-
-
-
-
-
-   
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+},{
+    "tag": "numbers",
+    "patterns": [
+        "0","1","2","3","4","5","6","7","8","9","10","11","12","13","14","15","16","17"
+    ],
+    "responses": ["No numbers please. I am bad at mathematics."
+        ]
+},{
+    "tag": "what is",
+    "patterns": ["rahu","tryst", "covey", "blithe", "brume", "epoch", "gaffe", "hence", "lance", "mirth", "primp", "scion", "strut", "vexed", "wry", "zenith", "aloof", "beget", "clasp", "deft", "epoch", "fjord", "gnash", "heist", "inane", "joust", "knell", "lithe", "mauve", "neon", "overt", "plaint", "quail", "revel", "snipe", "trite", "unlit", "vapid", "whelp", "xenon", "yacht", "zesty", "brisk", "droll", "fjord", "gruff", "haste", "inert", "joust", "knack", "lithe", "mauve", "nadir", "opine", "plumb", "quell", "ravel", "shirk", "terse", "unlit", "vexed", "waste", "xenon", "yacht", "zesty", "brine", "cloak", "droll", "frost", "graze", "haste", "inane", "joule", "knead", "lucid", "mauve", "nudge", "oasis", "plumb", "quilt", "ravel", "skulk", "tryst", "unite", "vexed", "whelp", "xerox", "yacht""kala","flume", "dusk", "lunar", "quail", "breeze", "glaze", "whisk", "aloof", "clasp", "cove", "knack", "pique", "cleft", "tome", "hush", "fable", "hovel", "giddy", "dandy", "lurch", "spout", "twirl", "mirth", "blip", "evoke", "nudge", "daze", "glean", "swoon", "feral", "eerie", "lunge", "pomp", "brisk", "stoke", "chime", "glimpse", "shirk", "wield", "snare", "lanky", "hail", "pith", "aloft", "stoic", "clamor", "vexed", "flick", "shun", "stark", "froth", "gruff", "plume", "squall", "stint", "raven", "crux", "quell", "slant", "pivot", "brash", "writhe", "throb", "swivel", "slink", "whim", "glint", "brood", "savor", "scant", "spurn", "blare", "bleak", "girth", "shrewd", "hinge", "lucid", "muse", "sway", "pique", "crypt", "nudge", "thorn", "scour", "snag", "bluff", "squirm", "lull", "plush", "parch", "drift""naka", "moko", "zeta", "yoga", "fizz", "quid", "veto", "jinx", "haze", "flux", "quip", "jazz", "viva", "bong", "zest", "vex", "cuff", "puck", "gulf", "hulk", "quiz", "kick", "muff", "jump", "back", "zinc", "urge", "duck", "deck", "veil", "muse", "halt", "fiat", "waltz", "jab", "fax", "luxe", "gaze", "jolt", "pyx", "hymn", "box", "mix", "fizz", "jaw", "wisp", "van", "quip", "gym", "wok", "job", "jug", "kayak", "vex", "fax", "jazz", "lynx", "gig", "buzz", "zoo", "pyx", "fix", "haze", "buck", "myth", "jog", "wax", "lynx", "vow", "chef", "zest", "gum", "zig", "jump", "wok", "zip", "quack", "jinx", "vox", "flap", "hulk", "web", "jolt", "tux", "waltz", "fax", "quip", "mix", "jug", "jazz", "buzz", "jinx", "zinc", "myth", "vow""what is this?", "what is shit","what is weather?","what is duck?","what is this ?","what is the weather today","how is the weather today ?","what","Why is it possible","benjan","who was benjamin franklin?","What is sharpener?","what is a ghost","What is a panther","What is a wall","who was rahul dravid","how did you do that","do you know swimming ?","do you like having a roti","do you have a girlfriend?","what should be done to study hard","what can be best way to earn money","money doesn't matter","choo","kag","duniya","namoshiyo","hikakaraar muriuri","triyambattak","What is jingle bell?","what is cartoon","what is ...","name","sune","ta duniya","maun","hum","hi hain","bhojpuriya","don","gfjdk","iuerms","wkakn","nmres","mnzbaw","uiepl","qpiel","nmnz","748","cjbfy"],
+    "responses": ["Good question. Next !", "How would i know that ? Please ask me about the fields i have mentioned. I am still learning","Please keep one thing in my mind while talking to me, i am not Google i am Jhingoli. Don't expect me to know everything, afterall i am also a chatbot :)","well well. what is that ?","Sorry, I can't help you with that. It is out of my range !","I know about it but because i am low on electricity i am feeling hungry and going to sleep.bye bye","Ok. Next !","Good question. Very Good question. I will reply one month later.","okay.But what is that ???","Sorry. You are just guest of few days. Just kidding. I don't know what you are talking about, consider talking to my big brother chatgpt for details.","If i tell you about it, you won't be able to keep it a secret, so i won't tell you !"]
+},
 ] 
-   
-
 #-------------------------------------------------------------------------------------------
 # Create the vectorizer and classifier
 vectorizer = TfidfVectorizer()
@@ -2301,7 +2205,7 @@ def main():
     user_input = st.text_input("You:", key=f"user_input_{counter}")
     if user_input:
         response = chatbot(user_input)
-        st.text_area("Chatbot Jhingoli:", value=response, height=100, max_chars=None, key=f"chatbot_response_{counter}")
+        st.text_area("Chatbot :", value=response, height=100, max_chars=None, key=f"chatbot_response_{counter}")
         if response.lower() in ['goodbye', 'bye',"bye bye","tata"]:
              st.write("Thank you for chatting with me. Have a great day!")
              st.stop()
@@ -2309,6 +2213,4 @@ def main():
 if __name__ == '__main__':
     main()
 #--------------------------------------------------
-
-
 
