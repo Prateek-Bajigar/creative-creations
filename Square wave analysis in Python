@@ -1,8 +1,13 @@
 
 """
-Square wave analysis in Python
+
+code-1
+
+Square wave analysis in Python to compare our square wave with original square wave 
 
 """
+
+
 import matplotlib.pyplot as plt
 import numpy as np
 from sympy import *
